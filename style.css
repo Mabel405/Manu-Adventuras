@@ -1,0 +1,1656 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    /* Fondo simulando el color de la selva oscuro del diseño */
+    background: linear-gradient(135deg, #325b4a 0%, #17362b 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+
+/* --- ENCABEZADO --- */
+.header {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+.logo-placeholder {
+    margin-bottom: 30px;
+}
+
+.logo-placeholder img {
+    max-width: 350px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.text-orange {
+    color: #ff6a00;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.subtitle .big-number {
+    font-size: 2rem;
+    color: #ffba54; /* Un tono más claro para el 33 según la imagen */
+    font-weight: 900;
+    vertical-align: middle;
+}
+
+.description {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 auto 40px auto;
+    max-width: 750px;
+}
+
+/* --- GRILLA DE CARDS --- */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 20px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+}
+
+.card {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    width: 240px;
+    height: 180px;
+    border: 5px solid;
+    border-radius: 4px;
+    /* Efecto de transición suave para el Hover */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+    background-color: #000;
+}
+
+/* Rotaciones intercaladas para dar el efecto de fotos desordenadas de la imagen original */
+.card:nth-child(odd) { transform: rotate(-3deg); }
+.card:nth-child(even) { transform: rotate(3deg); }
+
+/* --- ANIMACIÓN HOVER --- */
+.card:hover {
+    transform: scale(1.1) rotate(0deg); /* Se endereza y crece */
+    z-index: 10;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+}
+
+/* Colores de las tarjetas */
+.card.green { border-color: #2b8b22; }
+.card.orange { border-color: #ff8c00; }
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-tab {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 800;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.card.green .card-tab { background-color: #2b8b22; }
+.card.orange .card-tab { background-color: #ff8c00; }
+
+/* --- PIE DE PÁGINA --- */
+.footer-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left; /* Alineado a la izquierda como en la imagen */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.footer-text p {
+    margin-bottom: 20px;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ff6a00;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 12px 40px;
+    border-radius: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(255, 106, 0, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .card { width: 45%; height: 150px; }
+    .footer-text { text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .card { width: 100%; height: 200px; transform: none !important; margin-bottom: 15px; }
+    .card:hover { transform: scale(1.02) !important; }
+}
+/*aqui fondo de pagina
+
+/*
+/* =========================================
+   ESTILOS PARA LA PÁGINA "VIAJES EN GRUPO"
+   ========================================= */
+
+/* Sobrescribir el fondo general solo para esta página */
+body.page-grupo {
+    background: #17362b; /* Verde oscuro liso */
+    padding: 0; /* Quitamos el padding para que la imagen toque el borde superior */
+}
+
+/* Contenedor de la imagen superior */
+.hero-grupo {
+    position: relative;
+    width: 100%;
+    /* Usamos proporciones (vw = viewport width) para que escale suavemente con el ancho */
+    height: 35vw; 
+    max-height: 550px; /* Límite para que no ocupe toda la pantalla en monitores gigantes */
+    min-height: 300px; /* Límite para que no se vea muy pequeña en celulares */
+}
+
+.hero-grupo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Enfoca un poco más arriba para que las caras/paisajes no se corten */
+}
+
+/* Efecto de ola (SVG) */
+.wave-divider {
+    position: absolute;
+    bottom: -2px; /* Ajuste milimétrico para evitar que aparezca una línea blanca delgada debajo */
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    /* La ola ahora crece proporcionalmente al ancho de la pantalla */
+    height: 8vw; 
+    min-height: 50px;
+    max-height: 140px;
+}
+
+/* Contenedor del texto y tarjeta */
+.content-grupo {
+    max-width: 900px;
+    margin: -4vw auto 50px auto; /* Margen negativo adaptable para que el título suba proporcionalmente */
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Título con borde naranja estilo "burbuja" */
+.title-outline {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    /* Efecto de borde grueso naranja */
+    -webkit-text-stroke: 8px #ff6a00;
+    paint-order: stroke fill;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.subtitle-grupo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.intro-grupo {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tarjeta verde con la información */
+.info-card {
+    background-color: #2b6a36; /* Un verde intermedio según el diseño */
+    border-radius: 20px;
+    padding: 40px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.info-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .title-outline { 
+        font-size: 2.8rem; 
+        -webkit-text-stroke: 6px #ff6a00; 
+    }
+    .hero-grupo { height: 40vh; min-height: 300px; }
+    .wave-divider svg { height: 60px; }
+    .info-card { padding: 25px; }
+}
+
+/* =========================================
+   ESTILOS PARA LA PÁGINA "VIAJES PRIVADOS"
+   ========================================= */
+
+/* Fondo naranja vibrante para esta página */
+body.page-privado {
+    background: #ffa100;
+    padding: 0;
+}
+
+/* Título con borde más oscuro (rojo/naranja fuerte) */
+.title-outline-privado {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: 8px #d54a00; /* Un tono naranja quemado para el borde */
+    paint-order: stroke fill;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Tarjeta de información blanca */
+.info-card-blanca {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+    color: #333333; /* Texto oscuro para que se lea en fondo blanco */
+}
+
+.info-card-blanca h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #d54a00; /* Título en naranja oscuro */
+}
+
+.info-card-blanca p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.info-card-blanca p:last-child {
+    margin-bottom: 0;
+}
+
+/* Opcional: Cambiar el color del botón para que resalte más en el fondo naranja */
+.btn-privado {
+    background-color: #d54a00;
+    box-shadow: 0 5px 15px rgba(213, 74, 0, 0.4);
+}
+
+.btn-privado:hover {
+    background-color: #b03d00;
+}
+
+/* Adaptación responsive para el título nuevo */
+@media (max-width: 768px) {
+    .title-outline-privado { 
+        font-size: 2.8rem; 
+        -webkit-text-stroke: 6px #d54a00; 
+    }
+    .info-card-blanca { padding: 25px; }
+}
+
+/* =========================================
+   ESTILOS PARA LA PÁGINA "PROGRAMAS"
+   ========================================= */
+
+/* Fondo verde oscuro uniforme para esta página */
+body.page-programas {
+    background: #17362b;
+    padding: 40px 20px;
+    color: white;
+}
+
+/* Ajustes para el encabezado en esta página */
+.title-programas {
+    margin-bottom: 10px;
+    -webkit-text-stroke: 8px #ff6a00; /* Borde naranja del diseño */
+}
+
+.programs-subtitle {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffba54; /* Color amarillo/dorado */
+    margin-bottom: 20px;
+}
+
+.programs-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 auto 40px auto;
+    max-width: 800px;
+}
+
+/* GRILLA DE PROGRAMAS (2 columnas adaptables) */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Grilla de 2 columnas */
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+/* TARJETA DE PROGRAMA (La estructura de imagen con insignia) */
+.program-card {
+    display: block;
+    text-decoration: none;
+    position: relative;
+    border-radius: 15px; /* Bordes redondeados del diseño */
+    overflow: hidden; /* Mantiene la insignia dentro */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 180px; /* Altura adaptable */
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Efecto hover suave de zoom y sombra */
+.program-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    z-index: 2;
+}
+
+/* --- Imágenes de Fondo para cada Tarjeta (Reemplázalas) --- */
+/* (Usamos marcadores de posición, cámbialos por tus fotos reales) */
+.card-3dias { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://reservas-png.github.io/Manu-Adventures---Un-viaje-extraordinario/image/progra/RESERVADA\ 20-1-99.jpg'); }
+.card-4dias { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image/progra/foto-grupal.jpeg'); }
+.card-5dias { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image/eN EL RIO.jpg'); }
+.card-6dias { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image/progra/419181520_583d19b41d_b.jpg'); }
+.card-7dias { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image/progra/capibaras.jpg'); }
+.card-tarifario { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://reservas-png.github.io/Manu-Adventures---Un-viaje-extraordinario/image/progra/Guacamayo\ Azul\ y\ Amarillo\ -\ Blue\ and\ Yellow\ Macaw\ -\ 8\ dias.jpg'); }
+
+/* INSIGNIA DE TARJETA (El círculo de días) */
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.badge-number { font-size: 1.8rem; line-height: 1; }
+.badge-text { font-size: 0.8rem; text-transform: uppercase; }
+
+/* Ajuste específico para el Tarifario 2026 (solo texto) */
+.badge-wide { width: 75px; }
+.badge-text-big { font-size: 1.2rem; }
+
+/* --- Colores de las Insignias (Insignias) --- */
+.badge-orange { background-color: #ff6a00; }
+.badge-yellow { background-color: #ffba54; color: #333; } /* Texto oscuro para contraste */
+.badge-lime { background-color: #8fce00; color: #333; } /* Texto oscuro para contraste */
+
+/* TEXTO SUPERPUESTO (PROGRAMA / TARIFARIO) */
+.program-text {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Ajuste específico para el texto de Tarifario */
+.tarifario-text { font-size: 1.4rem; font-weight: 800; }
+
+/* RESPONSIVE DESIGN FOR GRIDS */
+@media (max-width: 768px) {
+    .title-programas { font-size: 2.8rem; -webkit-text-stroke: 6px #ff6a00; }
+    .programs-grid { grid-template-columns: 1fr; gap: 20px; } /* Se apila en 1 columna en celulares */
+    .program-card { height: 160px; }
+    .program-text { font-size: 1.4rem; }
+    .card-badge { width: 55px; height: 55px; top: 10px; right: 10px; }
+    .badge-number { font-size: 1.6rem; }
+}
+
+/* =========================================
+   ESTILOS EXTRAS PARA "CONSEJOS DE VIAJES"
+   ========================================= */
+
+/* Título blanco sin el borde naranja */
+.title-solid-white {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* Alineación de los párrafos centrales */
+.consejos-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left; /* Como en el diseño, el texto está justificado a la izquierda */
+    font-weight: 500;
+}
+
+.consejos-text p {
+    margin-bottom: 20px;
+}
+
+.text-orange-strong {
+    color: #ff8c00;
+    font-weight: 800;
+}
+
+.text-highlight {
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* El texto encerrado en naranja estilo "píldora" */
+.orange-pill {
+    background-color: #ff8c00;
+    color: white;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajuste de encuadre específico para la foto de Rafting en Consejos */
+.hero-consejos img {
+    /* Esto obliga al navegador a enfocar la parte inferior de la foto (donde está el bote) */
+    object-position: center 85%; 
+}
+
+/* Opcional: Si en PC quieres que la franja de la imagen sea un poco más alta para que se vea más agua y árboles, puedes añadir esto: */
+@media (min-width: 1024px) {
+    .hero-consejos {
+        height: 40vw; /* Aumenta un poco el alto de la cabecera en pantallas grandes */
+        max-height: 650px;
+    }
+}
+
+/* =========================================
+   ESTILOS PARA "PREGUNTAS FRECUENTES"
+   ========================================= */
+
+/* Fondo general de la página FAQ */
+body.page-faq {
+    background: linear-gradient(135deg, #ffba54 0%, #ff9500 100%);
+    padding: 50px 20px;
+    color: white;
+}
+
+/* Encabezado */
+.faq-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.title-outline-faq {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: 8px #ff5500; /* Borde naranja intenso */
+    paint-order: stroke fill;
+    text-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.faq-intro {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Contenedor de las preguntas */
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Tarjeta individual de pregunta */
+.faq-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden; /* Para que la cabecera respete los bordes redondos */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+}
+
+/* Sección de la Pregunta (Fondo melón claro) */
+.faq-question {
+    background-color: #ffe8cc; /* Naranja muy clarito */
+    color: #d54a00; /* Texto naranja oscuro/rojizo */
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Sección de la Respuesta (Fondo blanco) */
+.faq-answer {
+    padding: 25px 30px;
+    color: #444; /* Gris oscuro para buena lectura */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.faq-answer p {
+    margin-bottom: 15px;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lista con viñetas naranjas */
+.faq-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.faq-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.faq-list li::before {
+    content: "●";
+    color: #ff5500;
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* Texto destacado entre tarjetas */
+.faq-highlight {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 40px 0;
+    color: white;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .title-outline-faq { 
+        font-size: 2.5rem; 
+        -webkit-text-stroke: 6px #ff5500; 
+    }
+    .faq-question { padding: 15px 20px; font-size: 1.1rem; }
+    .faq-answer { padding: 20px; }
+    .faq-highlight { font-size: 1.1rem; }
+}
+
+/* =========================================
+   ESTILOS PARA "SOBRE NOSOTROS"
+   ========================================= */
+
+/* Fondo naranja sólido. Usamos "background" con !important para borrar el degradado verde base */
+body.page-nosotros {
+    background: #ffa100 !important;
+    padding: 0; 
+    color: white;
+}
+
+.content-nosotros {
+    padding: 40px 20px 0 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Sección Biografía (Foto + Texto) */
+.bio-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: left;
+}
+
+.bio-image-wrapper {
+    flex-shrink: 0; /* Evita que la foto se aplaste */
+}
+
+/* Efecto Polaroid para la foto */
+.bio-image {
+    width: 250px;
+    height: auto;
+    border: 8px solid white;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    transform: rotate(-4deg); /* Inclinación de la foto */
+    transition: transform 0.3s ease;
+}
+
+.bio-image:hover {
+    transform: rotate(0deg) scale(1.05); /* Efecto al pasar el cursor */
+}
+
+.bio-text h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.bio-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Tarjeta Blanca */
+.white-card-nosotros {
+    background-color: white;
+    color: #444;
+    padding: 30px 40px;
+    border-radius: 25px;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.nosotros-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nosotros-highlight {
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.5;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+}
+
+/* Contenedor de la Imagen Inferior (El guacamayo/jaguar) */
+.footer-image-section {
+    position: relative;
+    width: 100%;
+    /* Usamos proporciones relativas al ancho (vw) para evitar el aplastamiento en PC */
+    height: 35vw; 
+    max-height: 550px; /* Límite máximo para que no sea gigante en pantallas enormes */
+    min-height: 300px;
+    margin-top: 50px;
+}
+
+.footer-image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Enfocamos un poco más al centro para que el ave no se pierda */
+    object-position: center 40%; 
+    display: block;
+}
+
+/* Ola en la parte superior de la imagen */
+.wave-divider-top {
+    position: absolute;
+    top: -2px; /* Evita líneas no deseadas */
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 2;
+}
+
+.wave-divider-top svg {
+    display: block;
+    width: 100%;
+    /* La ola también se adapta proporcionalmente */
+    height: 8vw; 
+    min-height: 50px;
+    max-height: 140px;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .bio-section { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 25px;
+    }
+    .bio-image { width: 200px; }
+    .white-card-nosotros { padding: 25px; }
+    .nosotros-highlight { font-size: 1.1rem; }
+}
+
+/* =========================================
+   ESTILOS EXTRAS PARA "DIFERENCIAS"
+   ========================================= */
+
+/* Textos de introducción */
+.diferencias-text {
+    max-width: 850px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+
+.diferencias-text h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: white;
+    margin-top: 30px;
+}
+
+.diferencias-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Contenedor relativo para poder sobreponer la píldora naranja a la tarjeta */
+.card-wrapper-diferencias {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 20px; /* Espacio extra para que la píldora no se corte arriba */
+}
+
+/* La píldora naranja sobrepuesta */
+.orange-pill-diferencias {
+    position: absolute;
+    top: 5px; /* Esto empuja la píldora hacia arriba para que quede a la mitad del borde */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1rem;
+    z-index: 5; /* Asegura que esté por encima de la tarjeta verde */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+/* Ajuste a celulares: si la pantalla es muy chica, el texto largo de la píldora bajará a dos líneas */
+@media (max-width: 768px) {
+    .orange-pill-diferencias {
+        white-space: normal;
+        width: 90%;
+        text-align: center;
+        padding: 10px 15px;
+        top: -10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* =========================================
+   ESTILOS CORREGIDOS: DETALLE DE PROGRAMA (Blanco y Limpio)
+   ========================================= */
+
+/* Forzamos el fondo BLANCO y texto OSCURO usando !important para ganar al inicio */
+body.page-programa-detalle {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #333333 !important; /* Texto gris muy oscuro para lectura */
+}
+
+/* Ajuste de la cabecera para el sello gigante */
+.hero-detalle {
+    margin-bottom: 80px; 
+}
+
+/* --- SELLO CIRCULAR NARANJA (Badge) --- */
+.badge-gigante-container {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.badge-gigante {
+    background-color: #e65c00;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px dashed white;
+    box-shadow: 0 0 0 6px #e65c00, 0 10px 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.badge-g-top { font-size: 1rem; font-weight: 900; letter-spacing: 1px; margin-bottom: -5px; color: white !important; }
+.badge-g-num { font-size: 4.5rem; font-weight: 900; line-height: 1; margin-bottom: -5px; color: white !important; }
+.badge-g-bot { font-size: 1.2rem; font-weight: 700; color: white !important; }
+
+/* --- TEXTOS DEL CONTENIDO (Limpios y Oscuros) --- */
+.content-programa-detalle {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.content-programa-detalle p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 400; /* Peso normal para texto largo */
+    color: #333333 !important; /* Forzamos texto oscuro */
+}
+
+.title-orange-center {
+    color: #e65c00 !important; /* Forzamos título naranja */
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+/* --- ESTILO DE CITA (Mejorado) --- */
+.quote-text {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    padding: 20px 30px;
+    border-left: 5px solid #e65c00; /* Barra naranja a la izquierda */
+    background-color: #f9f9f9; /* Fondo gris muy tenue */
+    font-weight: 600;
+    font-style: italic;
+    color: #555555 !important;
+    text-align: left !important; /* Alineado a la izquierda */
+    line-height: 1.6;
+}
+
+/* --- TARJETA DE RESUMEN DE ITINERARIO (Corregido) --- */
+.itinerary-wrapper {
+    position: relative;
+    margin: 80px auto;
+}
+
+.orange-pill-itinerary {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9500;
+    color: white !important;
+    padding: 10px 40px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.itinerary-card {
+    background-color: #0f3b2b;
+    border-radius: 20px;
+    padding: 60px 30px 40px 30px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.itinerary-line {
+    position: absolute;
+    top: 72px; 
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    border-top: 3px dashed #ff9500;
+    z-index: 1; /* La línea se queda al fondo */
+}
+
+.itinerary-day {
+    flex: 1;
+    text-align: center;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+.day-title {
+    position: relative;
+    z-index: 10; /* Sube el texto por encima de la línea punteada */
+    background-color: #0f3b2b; /* El mismo verde de la tarjeta para "borrar" la línea de atrás */
+    display: inline-block;
+    color: #ff9500 !important;
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding: 0 15px; /* Espacio extra a los lados para que la línea no toque la letra */
+    margin-bottom: 15px;
+}
+
+/* AQUÍ LA CORRECCIÓN CLAVE: Hacemos la regla más específica para ganarle al texto gris */
+.content-programa-detalle .itinerary-card p.day-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: center !important;
+    color: #ffffff !important; /* Forzamos el color blanco */
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .itinerary-card { flex-direction: column; gap: 40px; padding: 50px 20px 30px 20px; }
+    .itinerary-line {
+        top: 10%; left: 50%; width: 3px; height: 80%;
+        border-top: none; border-left: 3px dashed #ff9500;
+    }
+}
+
+/* =========================================
+   LISTA DE ACTIVIDADES (Programa Detalle)
+   ========================================= */
+.activities-section {
+    position: relative;
+    margin: 60px auto;
+}
+
+.activities-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.title-activities {
+    color: #e65c00 !important;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* Mini Insignia a la derecha */
+.badge-mini {
+    background-color: #e65c00;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px dashed white;
+    box-shadow: 0 0 0 5px #e65c00;
+    flex-shrink: 0;
+}
+
+.bm-top { font-size: 0.75rem; font-weight: 900; color: #0f3b2b !important; margin-bottom: -2px; }
+.bm-num { font-size: 2.8rem; font-weight: 900; line-height: 1; margin-bottom: -5px; color: white !important;}
+.bm-bot { font-size: 0.95rem; font-weight: 700; color: white !important;}
+
+/* Línea de tiempo punteada */
+.timeline-list {
+    list-style: none;
+    padding-left: 15px;
+    border-left: 3px dashed #2b8b22; /* Línea verde */
+    margin-left: 5px;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.timeline-list li::before {
+    content: '●';
+    color: #2b8b22; /* Punto verde */
+    position: absolute;
+    left: -24px;
+    top: -2px;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   ITINERARIO DETALLADO (Fondo Verde)
+   ========================================= */
+.detailed-itinerary-section {
+    background-color: #0f3b2b; /* Verde oscuro */
+    padding: 60px 20px;
+    margin-top: 60px;
+}
+
+.itinerary-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.itinerary-day-detail {
+    margin-bottom: 50px;
+}
+
+.day-header-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.day-pill {
+    background-color: #e65c00; /* Fondo naranja */
+    color: white !important;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.day-route {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white !important;
+    line-height: 1.4;
+}
+
+.day-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #f0f0f0 !important; /* Gris muy claro/blanco para contrastar */
+    text-align: justify;
+}
+
+.text-orange-strong {
+    color: #ff9500 !important;
+    font-weight: 700;
+}
+
+/* Caja de actividad opcional (Canotaje) */
+.optional-box {
+    background-color: #2b6a36; /* Verde más claro */
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-top: 25px;
+}
+
+.optional-box p {
+    margin-bottom: 0;
+    font-style: italic;
+    color: white !important;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .activities-header { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+    .title-activities { font-size: 1.6rem; }
+    .day-header-detail { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+/* =========================================
+   SERVICIOS Y EQUIPO RECOMENDADO
+   ========================================= */
+
+.services-equipment-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* --- Contenedor Dividido (Listas e Imágenes) --- */
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.services-text {
+    flex: 1.2;
+}
+
+.green-title {
+    color: #2b8b22 !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.orange-title {
+    color: #e65c00 !important;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Estilos base para las listas */
+/* CONTENEDOR DE LISTAS */
+.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ITEMS */
+.custom-list li {
+    display: flex;
+    justify-content: center; /* centra icono + texto */
+    align-items: flex-start;
+    gap: 14px;
+
+    margin-bottom: 14px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+/* CONFIGURACIÓN GENERAL DE ICONOS */
+.check-list li::before,
+.cross-list li::before,
+.dot-list li::before {
+    position: static;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 900;
+}
+
+/* CHECK VERDE */
+.check-list li::before {
+    content: "✔";
+    color: #2b8b22;
+}
+
+/* X NARANJA */
+.cross-list li::before {
+    content: "✖";
+    color: #e65c00;
+}
+
+/* LISTA CON PUNTOS */
+.dot-list li {
+    color: #ffffff !important;
+}
+
+/* PUNTO NARANJA */
+.dot-list li::before {
+    content: "●";
+    color: #ff9500;
+    font-size: 0.9rem;
+}
+
+/* --- Imágenes Polaroid Superpuestas --- */
+.services-images {
+    flex: 0.8;
+    position: relative;
+    min-height: 400px; /* Asegura espacio para las fotos */
+}
+
+.polaroid-img {
+    position: absolute;
+    border: 8px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    width: 280px;
+    transition: transform 0.3s ease, z-index 0s;
+}
+
+/* Foto superior (Mariposa) */
+.img-top {
+    top: 0;
+    right: 30px;
+    transform: rotate(6deg);
+    z-index: 2;
+}
+
+/* Foto inferior (Caminata) */
+.img-bottom {
+    top: 180px;
+    right: 80px;
+    transform: rotate(-4deg);
+    z-index: 1;
+}
+
+.polaroid-img:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10; /* La foto que tocas pasa al frente */
+}
+
+/* --- Tarjeta de Equipo Recomendado --- */
+.equipment-wrapper {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Reciclamos la clase de la píldora, pero con un ajuste de posición */
+.equipment-wrapper .orange-pill-itinerary {
+    left: 20%; /* Alineado más a la izquierda como en el diseño */
+}
+
+.equipment-card {
+    background-color: #0f3b2b; /* Verde oscuro */
+    border-radius: 20px;
+    padding: 50px 40px 40px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .services-container { flex-direction: column; }
+    .services-images { min-height: 550px; margin-top: 30px; }
+    .img-top { right: 10px; width: 240px; }
+    .img-bottom { right: 50px; width: 240px; top: 160px; }
+    .equipment-wrapper .orange-pill-itinerary { left: 50%; width: 90%; text-align: center; white-space: normal; }
+    .equipment-card { padding: 50px 20px 30px 20px; }
+}
+
+/* =========================================
+   INFOGRAFÍA FINAL (Imagen con Sello Flotante)
+   ========================================= */
+
+.infographic-section {
+    position: relative; /* Clave para poder flotar el sello adentro */
+    max-width: 900px;
+    margin: 60px auto; /* Espacio arriba y abajo */
+    padding: 0 20px;
+}
+
+.infographic-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Posicionamos el sello que ya habíamos creado antes */
+.badge-floating-right {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 10;
+}
+
+/* Ajuste para celulares para que el sello no se salga de la pantalla */
+@media (max-width: 768px) {
+    .badge-floating-right {
+        top: 10px;
+        right: 20px;
+        width: 80px; /* Un poco más pequeño en celular */
+        height: 80px;
+    }
+    .badge-floating-right .bm-num { font-size: 2.2rem; }
+}
+
+/* =========================================
+   IMAGEN EXTRA 
+   ========================================= */
+
+.extra-image-container {
+    max-width: 900px; /* Mismo ancho que tu contenido principal */
+    margin: 40px auto; /* Espacio arriba y abajo */
+    padding: 0 20px;
+    text-align: center;
+}
+
+.extra-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Bordes redondeados como tus tarjetas */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra elegante */
+    display: block;
+}
+
+/* =========================================
+   VARIANTES DE COLOR PARA INSIGNIAS (Ej: 5 Días)
+   ========================================= */
+
+/* Fondo verde para la insignia */
+.badge-green {
+    background-color: #2b8b22 !important;
+    box-shadow: 0 0 0 6px #2b8b22, 0 10px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Para la mini insignia que no lleva sombra doble */
+.badge-mini.badge-green {
+    box-shadow: 0 0 0 5px #2b8b22 !important;
+}
+
+/* Color amarillo para el número 5 */
+.text-yellow {
+    color: #ffba54 !important; 
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA 6 DÍAS (Filas dobles y Caja Importante)
+   ========================================= */
+
+/* Modificamos la tarjeta para que acepte filas separadas */
+.card-6-dias {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Separación entre la fila de arriba y la de abajo */
+    padding-top: 60px;
+}
+
+/* Fila individual dentro de la tarjeta */
+.itinerary-row {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+/* La línea punteada para cada fila */
+.itinerary-line-row {
+    position: absolute;
+    top: 15px; /* Altura ajustada para que pase justo por detrás del texto "Día" */
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    border-top: 3px dashed #ff9500;
+    z-index: 1;
+}
+
+/* Caja Blanca de "IMPORTANTE" al final del itinerario detallado */
+.important-box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 40px;
+    margin-top: 60px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.important-box p {
+    color: #444 !important; /* Texto oscuro para lectura fácil */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.important-box .text-orange-strong {
+    color: #e65c00 !important; /* Aseguramos que la palabra IMPORTANTE resalte */
+}
+
+/* Adaptación a celulares de las filas dobles */
+@media (max-width: 768px) {
+    .itinerary-row { flex-direction: column; gap: 40px; }
+    .itinerary-line-row {
+        top: 10%; left: 50%; width: 3px; height: 80%;
+        border-top: none; border-left: 3px dashed #ff9500;
+    }
+    .important-box { padding: 25px 20px; }
+}
+
+/* Modificamos la tarjeta para que acepte filas separadas (6 y 7 días) */
+.card-6-dias, .card-7-dias {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Separación entre la fila de arriba y la de abajo */
+    padding-top: 60px;
+}
+
+/* =========================================
+   ESTILOS PARA "TARIFARIO 2026"
+   ========================================= */
+
+/* Fondo verde oscuro constante para toda la página */
+body.page-tarifario {
+    background-color: #17362b !important; 
+    color: white;
+}
+
+.content-tarifario {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Variante de Insignia para Tarifario (Ajuste del tamaño de letra) */
+.badge-tarifario {
+    background-color: #e65c00 !important;
+    box-shadow: 0 0 0 6px #e65c00, 0 10px 20px rgba(0,0,0,0.3) !important;
+    padding: 10px;
+}
+
+/* Contenedor de cada tarjeta */
+.tarifario-card-wrapper {
+    position: relative;
+    margin: 80px auto;
+}
+
+/* Las Píldoras de título sobre las tarjetas */
+.pill-tarifario {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1rem;
+    z-index: 5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.pill-yellow { background-color: #ff9500; } /* Naranja/Amarillo para la primera */
+.pill-orange { background-color: #e65c00; } /* Naranja oscuro para la segunda */
+
+/* La Tarjeta Blanca */
+.tarifario-card {
+    background-color: white;
+    border-radius: 25px;
+    padding: 60px 40px 40px 40px; /* Padding top más grande por la píldora */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Fila de cada precio */
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+.program-name {
+    color: #555555;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+/* Etiqueta verde del precio */
+.price-tag {
+    background-color: #1e5a3a; /* Verde oscuro estilo Manu */
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 6px 15px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Texto pequeño de Disclaimer */
+.price-disclaimer {
+    color: #666666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 600px) {
+    .tarifario-card { padding: 50px 20px 30px 20px; }
+    .price-row { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+        margin-bottom: 25px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .price-tag { align-self: flex-start; }
+}
+
+/* =========================================
+   BOTÓN SUTIL PARA DESCARGAR PDF
+   ========================================= */
+
+.download-pdf-container {
+    text-align: right; /* Alinea el botón a la derecha */
+    margin-top: 20px;
+    margin-bottom: -10px; /* Evita empujar demasiado el título de abajo */
+}
+
+.btn-download-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    background-color: #f5f5f5; /* Fondo gris muy clarito y sutil */
+    color: #17362b; /* Texto verde oscuro de tu marca */
+    padding: 8px 18px;
+    border-radius: 20px; /* Bordes bien redondeados */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid #dddddd; /* Borde muy sutil */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra casi invisible */
+    transition: all 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+/* Efecto al pasar el mouse por encima */
+.btn-download-pdf:hover {
+    background-color: #ff9500; /* Se vuelve naranja */
+    color: white; /* El texto y el ícono se vuelven blancos */
+    border-color: #ff9500;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* Se levanta un poquito */
+}
+
+/* Adaptación a celulares */
+@media (max-width: 768px) {
+    .download-pdf-container {
+        text-align: center; /* En el celular lo centramos para que sea fácil de tocar */
+        margin-bottom: 10px;
+    }
+}
